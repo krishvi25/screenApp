@@ -1,16 +1,19 @@
 # assignment1
+ Flutter app consists of three screens (A → B → C).
+The  goal is to update a value on Screen C and reflect that change backward through Screen B to Screen A using Provider .
+Provider is set up in main.dart using ChangeNotifierProvider.
+Initial value is set to "Hello from A!".
 
-A new Flutter project.
+ Screen A
+Shows the initial value from the ValueProvider.
+Navigates to Screen B using Navigator.push.
 
-## Getting Started
+ Screen B
+Reads the updated value using Provider.of<ValueProvider>
+Navigates to Screen C using Navigator.push.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ Screen C
+Accepts input using TextEditingController.
+On pressing Update, the new value is sent to the provider
+it uses Navigator.pop(context) to return to Screen B.
+updated value is automatically available on Screen B and Screen A after returning.
